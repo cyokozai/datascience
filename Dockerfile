@@ -9,6 +9,7 @@ ENV LC_ALL=${lang}
 ENV TZ="Asia/Tokyo"
 
 WORKDIR /home
+
 COPY pkginstall.jl /home/pkginstall.jl
 
 RUN apt -y update && apt -y upgrade &&\
@@ -16,6 +17,6 @@ RUN apt -y update && apt -y upgrade &&\
     rm -rf pkginstall.jl &&\
     if [ ! -d result ]; then mkdir result; fi
 
-COPY ./*.jl /home
+COPY ./src/* /home
 
 CMD ["julia", "main.jl"]

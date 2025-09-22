@@ -1,6 +1,7 @@
 using Dates
 
 include("ch1.jl")
+include("ch2.jl")
 
 function main()
     DATE = now(UTC)
